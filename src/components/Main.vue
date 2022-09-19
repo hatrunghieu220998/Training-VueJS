@@ -4,6 +4,7 @@
   <button @click="onRefsTemplate()">Refs</button>
   <button @click="onEvents()">Events</button>
   <button @click="onAsyncComponent()">Async Component</button>
+  <button @click="onTransition()">Transition</button>
 </template>
 
 <script>
@@ -24,6 +25,9 @@ export default {
     },
     onAsyncComponent() {
       this.$emit("onAsyncComponent");
+    },
+    onTransition() {
+      this.$emit("onTransition");
     },
   },
 };
