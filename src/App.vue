@@ -1,26 +1,57 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <main-screen
+    v-if="status === 'default'"
+    @onComputed="onHandleBeforeComputed()"
+    @onHandlingEvents="onHandlingEvent()"
+    @onRefsTemplate="onRefsTemplate()"
+    @onEvents="onEvents()"
+    @onAsyncComponent="onAsyncComponent()"
+  ></main-screen>
+  <computed v-if="status === 'computed'"></computed>
+  <handling-events v-if="status === 'HandlingEvents'"></handling-events>
+  <refs-template v-if="status === 'RefsTemplate'"></refs-template>
+  <events-screen v-if="status === 'Events'"></events-screen>
+  <async-component v-if="status === 'AsyncComponent'"></async-component>
 </template>
-
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import ComputedProperty from "./components/ComputedProperty.vue";
+import Main from "./components/Main.vue";
+import HandlingEvents from "./components/HandlingEvents.vue";
+import RefsTemplate from "./components/RefsTemplate.vue";
+import Events from "./components/Events.vue";
+import AsyncComponent from "./components/AsyncComponent.vue";
 export default {
+  data() {
+    return {
+      status: "default",
+    };
+  },
   name: "App",
   components: {
-    HelloWorld,
+    Computed: ComputedProperty,
+    MainScreen: Main,
+    HandlingEvents: HandlingEvents,
+    RefsTemplate: RefsTemplate,
+    EventsScreen: Events,
+    AsyncComponent: AsyncComponent,
+  },
+  methods: {
+    onHandleBeforeComputed() {
+      this.status = "computed";
+    },
+    onHandlingEvent() {
+      this.status = "HandlingEvents";
+    },
+    onRefsTemplate() {
+      this.status = "RefsTemplate";
+    },
+    onEvents() {
+      this.status = "Events";
+    },
+    onAsyncComponent() {
+      this.status = "AsyncComponent";
+    },
   },
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
