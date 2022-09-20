@@ -79,6 +79,19 @@
         This is something about notifications DANGER.
       </div>
     </transition>
+    <hr />
+    <button class="btn" @click="status = !status">Add or Remove</button>
+    <transition>
+      <div
+        style="
+          width: 200px;
+          height: 200px;
+          background-color: #333;
+          margin-top: 20px;
+        "
+        v-if="status"
+      ></div>
+    </transition>
   </div>
 </template>
 
@@ -87,7 +100,8 @@ export default {
   data() {
     return {
       show: true,
-      typeAnimation: "fade",
+      status: false,
+      typeAnimation: "slide",
     };
   },
 };
