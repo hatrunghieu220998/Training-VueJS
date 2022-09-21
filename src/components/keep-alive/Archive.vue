@@ -9,6 +9,12 @@
 <script>
   export default {
     name: 'archive',
+    data(){
+      console.log('data archive');
+    },
+    created(){
+      console.log('Created archive');
+    },
     beforeMount(){
       console.log('beforeMounted archive');
     },
@@ -20,7 +26,19 @@
     },
     updated(){
       console.log('Updated archive');
-    }
+    },
+    beforeUnmount(){
+      console.log('Before unmounted archive');
+    },
+    unmounted(){
+      console.log('Unmounted archive');
+    },
+    activated(){
+      console.log('activated archive');
+    },
+    deactivated(){
+      console.log('deactivated archive');
+    },
   }
   
 </script>
