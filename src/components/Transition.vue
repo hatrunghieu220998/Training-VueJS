@@ -80,29 +80,124 @@
       </div>
     </transition>
     <hr />
+    <h3>Javascript hook</h3>
+    <p>
+      Có thể định nghĩa các hook JavaScript trong các thuộc tính của component.
+      <br />
+      Những hook này có thể được sử dụng độc lập hoặc dùng chung với CSS
+      transition/animation.
+      <br />
+      Khi sử dụng các transition JavaScript, hàm callback done là bắt buộc đối
+      với các hook enter và leave. Trong các trường hợp khác, các hook này sẽ
+      được gọi một cách đồng bộ và transition sẽ kết thúc ngay lập tức.
+    </p>
     <button class="btn" @click="status = !status">Add or Remove</button>
-    <transition>
+    <transition
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @after-enter="afterEnter"
+      @enter-cancelled="enterCancelled"
+      @before-leave="beforeLeave"
+      @leave="leave"
+      @after-leave="afterLeave"
+      @leave-cancelled="leaveCancelled"
+    >
       <div
         style="
-          width: 200px;
-          height: 200px;
+          width: 300px;
+          height: 100px;
           background-color: #333;
           margin-top: 20px;
         "
         v-if="status"
       ></div>
     </transition>
+    <hr />
+    <h2>Transition between elements</h2>
+    <button
+      class="btn btn-block"
+      @click="
+        selectedComponent == 'success-alert'
+          ? (selectedComponent = 'danger-alert')
+          : (selectedComponent = 'success-alert')
+      "
+    >
+      Submit (toggle 2 notifications)
+    </button>
+    <br />
+    <transition name="slide" mode="out-in">
+      <component :is="selectedComponent"></component>
+    </transition>
   </div>
 </template>
 
 <script>
+import DangerAlert from "./DangerAlert.vue";
+import SuccessAlert from "./SuccessAlert.vue";
 export default {
   data() {
     return {
       show: true,
       status: false,
       typeAnimation: "slide",
+      elementWidth: 100,
+      alertAnimation: "fade",
+      selectedComponent: "success-alert",
     };
+  },
+  components: {
+    DangerAlert: DangerAlert,
+    SuccessAlert: SuccessAlert,
+  },
+  methods: {
+    beforeEnter(el) {
+      console.log("beforeEnter", el);
+      this.elementWidth = 100;
+      el.style.width = this.elementWidth + "px";
+    },
+    enter(el, done) {
+      console.log("enter", el);
+      let point = 1;
+      const interval = setInterval(() => {
+        el.style.width = this.elementWidth + point * 10 + "px";
+        point++;
+        if (point > 20) {
+          clearInterval(interval);
+          done();
+        }
+      }, 20);
+      // nhận vào done vì khi enter xong thì những hook sau mới được hoạt động, done là một callback
+    },
+    afterEnter(el) {
+      console.log("afterEnter", el);
+    },
+    enterCancelled(el) {
+      console.log("enterCancelled", el);
+    },
+    beforeLeave(el) {
+      console.log("beforeLeave", el);
+      this.elementWidth = 300;
+      el.style.width = this.elementWidth + "px";
+    },
+    leave(el, done) {
+      console.log("leave", el);
+      let point = 1;
+      const interval = setInterval(() => {
+        el.style.width = this.elementWidth - point * 10 + "px";
+        point++;
+        if (point > 20) {
+          clearInterval(interval);
+          done();
+        }
+      }, 20);
+      // nhận vào done vì khi enter xong thì những hook sau mới được hoạt động, done là một callback
+    },
+    afterLeave(el) {
+      console.log("afterLeave", el);
+    },
+    leaveCancelled(el) {
+      console.log("leaveCancelled", el);
+    },
   },
 };
 </script>
