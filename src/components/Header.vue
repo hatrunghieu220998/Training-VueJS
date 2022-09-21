@@ -3,6 +3,10 @@
     <li><RouterLink to="/">Tuan</RouterLink></li>
     <li> <RouterLink to="/Props">Props</RouterLink></li>
     <li><RouterLink to="/Provide">Provide / inject </RouterLink></li>
+    <li><RouterLink to="/Plugins">Plugins </RouterLink></li>
+    <li><RouterLink to="/Teleport">Teleport </RouterLink></li>
+
+
     
     
   </ul>

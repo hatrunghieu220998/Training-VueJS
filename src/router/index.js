@@ -13,36 +13,22 @@ const router = createRouter({
       name: "props",
       component: () => import("../views/Props.vue"),
     },
-    // {
-    //   path: "/Provide",
-    //   name: "Provide",
-    //   component: () => import("../views/product-detail/ProductDetail.vue")
-    // },
-    // {
-    //   path: "/women",
-    //   name: "women-collection",
-    //   component: () => import("../views/womenView.vue")
-    // },
-    // {
-    //   path: "/login",
-    //   name: "login",
-    //   component: () => import("../views/LoginView.vue")
-    // },
-    // {
-    //   path: '/stock',
-    //   name: 'stock',
-    //   component: () => import("../views/StockView.vue")
-    // },
-    // {
-    //   path: "/cart",
-    //   name: "Cart",
-    //   component: () => import("../views/Cart.vue")
-    // },
-    // {
-    //   path: '/:pathMatch(.*)*',
-    //   name: 'error',
-    //   component: () => import("../components/common/NotFoundPage.vue")
-    // },
+    {
+      path: "/Provide",
+      name: "Provide",
+      component: () => import("../views/Provide.vue")
+    },
+    {
+      path: "/Plugins",
+      name: "Plugins",
+      component: () => import("../views/Plugins.vue")
+    },
+    
+    {
+      path: "/Teleport",
+      name: "Teleport",
+      component: () => import("../views/Teleport.vue")
+    },
   ],
 });
 
