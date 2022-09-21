@@ -7,6 +7,7 @@
     @onEvents="onEvents()"
     @onAsyncComponent="onAsyncComponent()"
     @onClassStyle="onClassStyle()"
+    @onDynamicComponent="onDynamicComponent()"
   ></main-screen>
   <computed v-if="status === 'computed'"></computed>
   <handling-events v-if="status === 'HandlingEvents'"></handling-events>
@@ -14,6 +15,7 @@
   <events-screen v-if="status === 'Events'"></events-screen>
   <async-component v-if="status === 'AsyncComponent'"></async-component>
   <ClassStyle v-if="status === 'ClassStyle'"></ClassStyle>
+  <DynamicComponent v-if="status === 'DynamicComponent'"></DynamicComponent>
 </template>
 <script>
 import ComputedProperty from "./components/ComputedProperty.vue";
@@ -23,6 +25,7 @@ import RefsTemplate from "./components/RefsTemplate.vue";
 import Events from "./components/Events.vue";
 import AsyncComponent from "./components/AsyncComponent.vue";
 import ClassStyle from "./components/ClassStyle.vue";
+import DynamicComponent from "./components/DynamicComponent.vue";
 export default {
   data() {
     return {
@@ -38,6 +41,7 @@ export default {
     EventsScreen: Events,
     AsyncComponent: AsyncComponent,
     ClassStyle: ClassStyle,
+    DynamicComponent: DynamicComponent,
   },
   methods: {
     onHandleBeforeComputed() {
@@ -57,6 +61,9 @@ export default {
     },
     onClassStyle() {
       this.status = "ClassStyle";
+    },
+    onDynamicComponent() {
+      this.status = "DynamicComponent";
     },
   },
 };

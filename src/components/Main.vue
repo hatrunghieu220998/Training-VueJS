@@ -5,6 +5,7 @@
   <button @click="onEvents()">Events</button>
   <button @click="onAsyncComponent()">Async Component</button>
   <button @click="onClassStyle()">Class And Style Binding</button>
+  <button @click="onDynamicComponent()">Dynamic Component</button>
 </template>
 
 <script>
@@ -28,6 +29,9 @@ export default {
     },
     onClassStyle() {
       this.$emit("onClassStyle");
+    },
+    onDynamicComponent() {
+      this.$emit("onDynamicComponent");
     },
   },
 };
