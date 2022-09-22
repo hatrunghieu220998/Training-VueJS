@@ -3,7 +3,7 @@
   <button @click="onHandlingEvents()">Event handling</button>
   <button @click="onRefsTemplate()">Refs</button>
   <button @click="onEvents()">Events</button>
-  <button @click="onAsyncComponent()">Async Component</button>
+  <button @click="onComposable()">Composable</button>
 </template>
 
 <script>
@@ -22,8 +22,8 @@ export default {
     onEvents() {
       this.$emit("onEvents");
     },
-    onAsyncComponent() {
-      this.$emit("onAsyncComponent");
+    onComposable() {
+      this.$emit("onComposable");
     },
   },
 };
