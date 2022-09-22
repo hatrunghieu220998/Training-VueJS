@@ -5,10 +5,7 @@
     <li><RouterLink to="/Provide">Provide / inject </RouterLink></li>
     <li><RouterLink to="/Plugins">Plugins </RouterLink></li>
     <li><RouterLink to="/Teleport">Teleport </RouterLink></li>
-
-
-    
-    
+    <li><RouterLink to="/Routing">Routing </RouterLink></li>
   </ul>
 </template>
 <script>

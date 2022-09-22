@@ -22,12 +22,36 @@ const router = createRouter({
       path: "/Plugins",
       name: "Plugins",
       component: () => import("../views/Plugins.vue")
-    },
-    
+    }, 
     {
       path: "/Teleport",
       name: "Teleport",
       component: () => import("../views/Teleport.vue")
+    },
+    {
+      path: "/Routing",
+      name: "Routing",
+      component: () => import("../views/Routing.vue")
+    },
+    {
+      path: "/examplerouter",
+      name: "examplerouter",
+      component: () => import("../routerExample/examplerouter.vue")
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFoundPage',
+      component: () => import("../routerExample/NotFoundPage.vue")
+    },
+    {
+      path: "/dynamicrouter",
+      name: "dynamicrouter",
+      component: () => import("../routerExample/dynamicrouter.vue")
+    },
+    {
+      path: "/dynamicrouter/:id",
+      name: "detailrouter",
+      component: () => import("../routerExample/detailrouter.vue")
     },
   ],
 });
