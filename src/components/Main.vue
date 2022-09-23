@@ -5,6 +5,7 @@
   <button @click="onEvents()">Events</button>
   <button @click="onAsyncComponent()">Async Component</button>
   <button @click="onTransition()">Transition</button>
+  <button @click="onStateManagement()">State Management</button>
 </template>
 
 <script>
@@ -28,6 +29,9 @@ export default {
     },
     onTransition() {
       this.$emit("onTransition");
+    },
+    onStateManagement() {
+      this.$emit("onStateManagement");
     },
   },
 };

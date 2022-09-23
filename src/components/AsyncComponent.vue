@@ -24,7 +24,7 @@ const AsyncCompChild = defineAsyncComponent({
   // A component to use while the async component is loading
   loadingComponent: LoadingComponent,
   // Delay before showing the loading component. Default: 200ms.
-  delay: 500,
+  delay: 200,
 
   // A component to use if the load fails
   errorComponent: ErrorComponent,

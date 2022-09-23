@@ -7,6 +7,7 @@
     @onEvents="onEvents()"
     @onAsyncComponent="onAsyncComponent()"
     @onTransition="onTransition()"
+    @onStateManagement="onStateManagement()"
   ></main-screen>
   <computed v-if="status === 'computed'"></computed>
   <handling-events v-if="status === 'HandlingEvents'"></handling-events>
@@ -14,6 +15,7 @@
   <events-screen v-if="status === 'Events'"></events-screen>
   <async-component v-if="status === 'AsyncComponent'"></async-component>
   <transition-screen v-if="status === 'Transition'"></transition-screen>
+  <StateManagement v-if="status === 'StateManagement'"></StateManagement>
 </template>
 <script>
 import ComputedProperty from "./components/ComputedProperty.vue";
@@ -23,6 +25,7 @@ import RefsTemplate from "./components/RefsTemplate.vue";
 import Events from "./components/Events.vue";
 import AsyncComponent from "./components/AsyncComponent.vue";
 import Transition from "./components/Transition.vue";
+import StateManagement from "./components/StateManagement.vue";
 export default {
   data() {
     return {
@@ -38,6 +41,7 @@ export default {
     EventsScreen: Events,
     AsyncComponent: AsyncComponent,
     TransitionScreen: Transition,
+    StateManagement: StateManagement,
   },
   methods: {
     onHandleBeforeComputed() {
@@ -57,6 +61,9 @@ export default {
     },
     onTransition() {
       this.status = "Transition";
+    },
+    onStateManagement() {
+      this.status = "StateManagement";
     },
   },
 };
