@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
+  // history: createWebHashHistory(),
   history: createWebHistory(),
+
   routes: [
     {
       path: "/",
@@ -47,9 +49,10 @@ const router = createRouter({
       path: "/dynamicrouter",
       name: "dynamicrouter",
       component: () => import("../routerExample/dynamicrouter.vue")
+
     },
     {
-      path: "/dynamicrouter/:id",
+      path: "/dynamicrouter/:name",
       name: "detailrouter",
       component: () => import("../routerExample/detailrouter.vue")
     },

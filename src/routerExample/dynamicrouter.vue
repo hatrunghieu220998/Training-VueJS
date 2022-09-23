@@ -2,12 +2,12 @@
     <div>
         <header>
             <ul>
-                <li v-for="item in data" :key="item.age">
+                <li v-for="item in data1" :key="item.age" @click="handleClick(item.age)">
                    <router-link  :to="ulr + item.name"> {{item.name}}</router-link>
                 </li>
             </ul>
         </header>
-        <detailrouterVue :data="data" />
+        <detailrouterVue  />
     </div>
 </template>
 <script>
@@ -18,7 +18,8 @@
         data(){
             return{
                 ulr: '/dynamicrouter/',
-                data:[
+                id:18,
+                data1:[
                     {
                         name: 'hieu',
                         age: 18,
@@ -40,6 +41,11 @@
                         img:'https://toigingiuvedep.vn/wp-content/uploads/2021/01/hinh-anh-dep-ve-hoa-sen.jpg'
                     },
                 ]
+            }
+        },
+        methods:{
+            handleClick(id){
+                this.id = id
             }
         }
         
