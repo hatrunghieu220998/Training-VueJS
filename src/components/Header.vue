@@ -5,6 +5,7 @@
     <li><RouterLink to="/Routing">Routing</RouterLink></li>
     <li><RouterLink to="/KeepAlive">KeepAlive</RouterLink></li>
     <li><RouterLink to="/teleport">teleport</RouterLink></li>
+    <li><RouterLink to="/Slots">Slots</RouterLink></li>
     <li><RouterLink to="/Test">Test</RouterLink></li>
   </ul>
 </template>

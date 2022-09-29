@@ -28,6 +28,11 @@ const router = createRouter({
       component: () => import("@/components/teleport.vue"),
     },
     {
+      path: "/Slots",
+      name: "Slots",
+      component: () => import("@/components/Slots.vue"),
+    },
+    {
       path: "/Test",
       name: "Test",
       component: () => import("@/components/Testing.vue"),
